@@ -2,29 +2,23 @@ name: Deploy Godot Web Export
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
 
 jobs:
   export-web:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Download Godot
-        run: |
-          GODOT_VERSION=4.3  # change if you're on 3.x or another 4.x release
-          wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip
-          wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}-stable_export_templates.tpz
-          unzip Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip -d godot
-          mkdir -p ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
-          unzip Godot_v${GODOT_VERSION}-stable_export_templates.tpz -d ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
-          mv godot/Godot_v${GODOT_VERSION}-stable_linux.x86_64 godot/godot
-
-      - name: Export HTML5
-        run: |
-          ./godot/godot --headless --export-release "HTML5" build/index.html
+      - name: Export HTML5 build
+        uses: firebelley/godot-export@v7
+        with:
+          godot_executable_download_url: 'https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip'
+          godot_export_templates_download_url: 'https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz'
+          relative_project_path: './'
+          use_preset_export_path: true
+          cache: true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
