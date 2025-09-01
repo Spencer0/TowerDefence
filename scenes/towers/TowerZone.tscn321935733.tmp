@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://qdyeb7fj4s6m"]
+
+[ext_resource type="Script" uid="uid://dnjsq0ktxysb2" path="res://scripts/TowerZone.gd" id="1_fdk1b"]
+[ext_resource type="PackedScene" uid="uid://gxn5v5xj5kbv" path="res://scenes/towers/basic_tower.tscn" id="2_mmgrv"]
+[ext_resource type="Script" uid="uid://c44nndoolrs6f" path="res://scenes/towers/collision_shape_2d.gd" id="3_ghlg4"]
+[ext_resource type="Texture2D" uid="uid://butu34cgmo40f" path="res://assets/sprites/real-estate.png" id="3_jo686"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75w2o"]
+size = Vector2(129.897, 101.692)
+
+[node name="TowerZone" type="Area2D"]
+z_index = 10
+rotation = 0.863938
+disable_mode = 2
+script = ExtResource("1_fdk1b")
+tower_scene = ExtResource("2_mmgrv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.02389, -1.13087)
+shape = SubResource("RectangleShape2D_75w2o")
+script = ExtResource("3_ghlg4")
+
+[node name="PlacementMarker" type="TextureRect" parent="."]
+offset_left = -28.9433
+offset_top = 30.635
+offset_right = 11.0567
+offset_bottom = 70.635
+scale = Vector2(1.57541, 0.619553)
+texture = ExtResource("3_jo686")
+expand_mode = 2

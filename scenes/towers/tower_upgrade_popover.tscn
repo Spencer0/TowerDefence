@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccohnoel7q3ub"]
+
+[ext_resource type="PackedScene" uid="uid://dfu8ur4q2pgw1" path="res://scenes/ui/BasePopover.tscn" id="1_1at7y"]
+[ext_resource type="Script" uid="uid://bepldh2vcw51o" path="res://scripts/towers/tower_upgrade_popover.gd" id="2_f04fb"]
+
+[node name="TowerUpgradePopover" instance=ExtResource("1_1at7y")]
+script = ExtResource("2_f04fb")

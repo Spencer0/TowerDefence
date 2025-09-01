@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp6d8uqgy65cg"]
+
+[ext_resource type="PackedScene" uid="uid://dfu8ur4q2pgw1" path="res://scenes/ui/BasePopover.tscn" id="1_488kq"]
+[ext_resource type="Script" uid="uid://dyf006akap7ld" path="res://scripts/towers/tower_placement_popover.gd" id="2_okidj"]
+
+[node name="TowerPlacementPopover" instance=ExtResource("1_488kq")]
+script = ExtResource("2_okidj")

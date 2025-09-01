@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvhio3kvfispt"]
+
+[ext_resource type="Script" uid="uid://5xy8tqkvk41t" path="res://scripts/gem_pickup.gd" id="1_rr1uy"]
+[ext_resource type="Texture2D" uid="uid://dijwx6ufv71xx" path="res://assets/sprites/gems/gems/garnet.png" id="2_383wu"]
+
+[node name="GemPickup" type="Node2D"]
+script = ExtResource("1_rr1uy")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_383wu")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

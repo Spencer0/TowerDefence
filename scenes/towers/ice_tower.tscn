@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://lpsr0hotr7d7"]
+
+[ext_resource type="PackedScene" uid="uid://boicog63mvln8" path="res://scenes/towers/BaseTower.tscn" id="1_poa7u"]
+[ext_resource type="Script" uid="uid://b5kfhwkct14s3" path="res://scripts/towers/ice_tower.gd" id="2_2e4qw"]
+[ext_resource type="Texture2D" uid="uid://dg6cveu0sif8p" path="res://assets/sprites/IsometricTowerSprites/Towers (grey)/tower_04.png" id="3_t5dbq"]
+[ext_resource type="Texture2D" uid="uid://cjebpfckt6gwq" path="res://assets/sprites/IsometricTowerSprites/Towers (grey)/tower_05.png" id="4_eymuq"]
+[ext_resource type="Texture2D" uid="uid://bds6dusssfjo6" path="res://assets/sprites/IsometricTowerSprites/Towers (grey)/tower_12.png" id="5_m1gso"]
+[ext_resource type="Texture2D" uid="uid://dp5s6oiha815b" path="res://assets/sprites/IsometricTowerSprites/Towers (red)/tower_41.png" id="6_xmb6n"]
+
+[node name="IceTower" instance=ExtResource("1_poa7u")]
+script = ExtResource("2_2e4qw")
+slow_duration = 3.0
+slow_amount = 0.5
+
+[node name="Bottom2" type="Sprite2D" parent="." index="2"]
+position = Vector2(0, 46)
+texture = ExtResource("3_t5dbq")
+
+[node name="Middle1" type="Sprite2D" parent="." index="3"]
+position = Vector2(0, 19)
+texture = ExtResource("4_eymuq")
+
+[node name="Middle2" type="Sprite2D" parent="." index="4"]
+position = Vector2(0, -18)
+texture = ExtResource("5_m1gso")
+
+[node name="Bottom" type="Sprite2D" parent="." index="5"]
+position = Vector2(0, -53)
+texture = ExtResource("6_xmb6n")

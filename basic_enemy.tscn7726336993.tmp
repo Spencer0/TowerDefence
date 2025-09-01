@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cscbj1701v25s"]
+
+[ext_resource type="Script" uid="uid://cwr7fkjcsfmsn" path="res://scripts/BasicEnemy.gd" id="1_naotq"]
+[ext_resource type="Texture2D" uid="uid://cnjfkjwuljtp2" path="res://assets/sprites/fire_staff.png" id="2_rwafm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m37v0"]
+size = Vector2(10, 55.5)
+
+[node name="BasicEnemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
+script = ExtResource("1_naotq")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rwafm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_m37v0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://b6fnc0rpr5jir"]
+
+[ext_resource type="PackedScene" uid="uid://bfryi4q6asmi0" path="res://scenes/projectiles/BaseProjectile.tscn" id="1_aja3g"]
+[ext_resource type="Script" uid="uid://5qdwkec8ijuc" path="res://scripts/projectiles/ice_projectile.gd" id="2_wl8y0"]
+[ext_resource type="Texture2D" uid="uid://cmpu7m0fd2nph" path="res://assets/sprites/metalball1/40.png" id="2_xo3ha"]
+[ext_resource type="Texture2D" uid="uid://l1f2p6yi0rxu" path="res://assets/sprites/metalball1/41.png" id="3_wl8y0"]
+[ext_resource type="Texture2D" uid="uid://bikaiudlhw6hn" path="res://assets/sprites/metalball1/42.png" id="4_t8a34"]
+[ext_resource type="Texture2D" uid="uid://cfwi6mbxv6n3p" path="res://assets/sprites/metalball1/43.png" id="5_xgoik"]
+[ext_resource type="Texture2D" uid="uid://dijs54mivpgab" path="res://assets/sprites/metalball1/44.png" id="6_13pbq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_awjt4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xo3ha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xo3ha")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xo3ha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wl8y0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t8a34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xgoik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_13pbq")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 20.0
+}]
+
+[node name="IceProjectile" instance=ExtResource("1_aja3g")]
+script = ExtResource("2_wl8y0")
+slow_amount = 0.5
+slow_duration = 3.0
+speed = 300.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_awjt4")
+animation = &"hit"

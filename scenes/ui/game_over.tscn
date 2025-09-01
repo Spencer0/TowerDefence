@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://deee1iqnm4r3o"]
+
+[ext_resource type="Script" uid="uid://bjrlhgvlk4ktf" path="res://scripts/ui/game_over.gd" id="1_o6b8n"]
+[ext_resource type="Texture2D" uid="uid://dun8un7q0ht53" path="res://assets/Desert Background Large.png" id="1_vfrx6"]
+[ext_resource type="Resource" uid="uid://bnblkdl3efj0a" path="res://scripts/Resources/GameOver.tres" id="2_o6b8n"]
+[ext_resource type="Theme" uid="uid://bga0tj3jgwl3o" path="res://scenes/UiScreenTheme.tres" id="2_vfrx6"]
+[ext_resource type="Texture2D" uid="uid://jshnqfr3v646" path="res://assets/ui-red/Double/button_rectangle_depth_border.png" id="3_4583b"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_o6b8n")
+game_over_state = ExtResource("2_o6b8n")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = -38.0
+offset_top = -532.0
+offset_right = 1336.0
+offset_bottom = 3519.0
+texture = ExtResource("1_vfrx6")
+
+[node name="BoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_right = 640.0
+offset_bottom = 249.0
+grow_horizontal = 2
+theme = ExtResource("2_vfrx6")
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/BoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/BoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MenuButton" type="Button" parent="CanvasLayer/BoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.639216, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "MENU"
+icon = ExtResource("3_4583b")
+flat = true
+icon_alignment = 1
+
+[node name="ReplayButton" type="Button" parent="CanvasLayer/BoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.639216, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "REPLAY LEVEL"
+icon = ExtResource("3_4583b")
+flat = true
+icon_alignment = 1

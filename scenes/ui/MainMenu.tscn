@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://7drqgnlojc4k"]
+
+[ext_resource type="Script" uid="uid://b11ciqvislh21" path="res://scripts/ui/MainMenu.gd" id="1_xpiny"]
+[ext_resource type="Texture2D" uid="uid://bf0awhtlhnoeg" path="res://assets/sprites/Easter Background Regular.png" id="2_bhu4a"]
+[ext_resource type="Theme" uid="uid://bga0tj3jgwl3o" path="res://scenes/UiScreenTheme.tres" id="3_e2per"]
+[ext_resource type="Texture2D" uid="uid://b858b6uawkrrp" path="res://assets/sprites/ui-yellow/Default/check_square_color_checkmark.png" id="4_7mi0g"]
+[ext_resource type="FontFile" uid="uid://cupuer6eed3y4" path="res://assets/fonts/Kenney Future Narrow.ttf" id="5_nqjyj"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xpiny")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -5.0
+offset_top = -487.0
+offset_right = 1290.0
+offset_bottom = 1433.0
+texture = ExtResource("2_bhu4a")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 584.967
+offset_top = 495.774
+offset_right = 624.967
+offset_bottom = 535.774
+theme = ExtResource("3_e2per")
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_7mi0g")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 405.0
+offset_right = 887.0
+offset_bottom = 482.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_nqjyj")
+theme_override_font_sizes/font_size = 64
+text = "Tower Defence"

@@ -1,0 +1,120 @@
+[gd_scene load_steps=10 format=3 uid="uid://b4q1g52ororqg"]
+
+[ext_resource type="Script" uid="uid://d0wyqc1nxa67u" path="res://scripts/GameManager.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cscbj1701v25s" path="res://basic_enemy.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://dbubllyh3rclm" path="res://ui.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://gxn5v5xj5kbv" path="res://basic_tower.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://qdyeb7fj4s6m" path="res://TowerZone.tscn" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://c1hsqg5ecxbgk" path="res://assets/sprites/backgroundColorGrass.png" id="6_7mycd"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ig7tw"]
+vertices = PackedVector2Array(-7823, -1578, -7823, -1307.02, -8948, -1309.97, -8948, -1578.99)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8958, -1589, -7813, -1588, -7813, -1297, -8958, -1300)])
+
+[sub_resource type="Gradient" id="Gradient_1bvp3"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lquwl"]
+gradient = SubResource("Gradient_1bvp3")
+
+[node name="Main" type="Node2D"]
+
+[node name="Wrapper" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Wrapper"]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="Wrapper/CanvasLayer"]
+offset_left = -12.0
+offset_top = -14.0
+offset_right = 1286.0
+offset_bottom = 1045.0
+texture = ExtResource("6_7mycd")
+
+[node name="GameManager" type="Node2D" parent="Wrapper" node_paths=PackedStringArray("spawn_point_node", "target_point_node")]
+position = Vector2(37, 42)
+script = ExtResource("1_ig7tw")
+enemy_scene = ExtResource("2_0xm2m")
+spawn_point_node = NodePath("../SpawnPoint")
+target_point_node = NodePath("../TargetPoint")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Wrapper"]
+position = Vector2(8961, 1942)
+navigation_polygon = SubResource("NavigationPolygon_ig7tw")
+
+[node name="UI" type="CanvasLayer" parent="Wrapper"]
+script = ExtResource("3_h2yge")
+tower_scene = ExtResource("4_1bvp3")
+tower_cost = null
+
+[node name="HUD" type="Control" parent="Wrapper/UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -3.0
+offset_right = -10.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="VBoxContainer" parent="Wrapper/UI/HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HealthLabel" type="Label" parent="Wrapper/UI/HUD/TopBar"]
+layout_mode = 2
+text = "Health: 100"
+
+[node name="MoneyLabel" type="Label" parent="Wrapper/UI/HUD/TopBar"]
+layout_mode = 2
+text = "Money: 500"
+
+[node name="WaveLabel" type="Label" parent="Wrapper/UI/HUD/TopBar"]
+layout_mode = 2
+text = "Wave: 1"
+
+[node name="BottomBar" type="HBoxContainer" parent="Wrapper/UI/HUD"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 568.0
+offset_right = 114.0
+offset_bottom = 640.0
+mouse_filter = 2
+alignment = 2
+
+[node name="PlaceTowerButton" type="Button" parent="Wrapper/UI/HUD/BottomBar"]
+layout_mode = 2
+text = "Place Tower"
+icon = SubResource("GradientTexture2D_lquwl")
+
+[node name="SpawnPoint" type="Marker2D" parent="Wrapper"]
+position = Vector2(25, 496)
+
+[node name="TargetPoint" type="Marker2D" parent="Wrapper"]
+position = Vector2(1126, 512)
+
+[node name="TowerPlacementManager" type="Node2D" parent="Wrapper"]
+
+[node name="PlacementSpot" parent="Wrapper/TowerPlacementManager" instance=ExtResource("5_lquwl")]
+position = Vector2(212, 439)
+
+[node name="PlacementSpot2" parent="Wrapper/TowerPlacementManager" instance=ExtResource("5_lquwl")]
+position = Vector2(426, 439)
+
+[node name="PlacementSpot3" parent="Wrapper/TowerPlacementManager" instance=ExtResource("5_lquwl")]
+position = Vector2(619, 445)
+
+[node name="PlacementSpot4" parent="Wrapper/TowerPlacementManager" instance=ExtResource("5_lquwl")]
+position = Vector2(843, 449)

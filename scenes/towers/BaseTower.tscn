@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://boicog63mvln8"]
+
+[ext_resource type="Script" uid="uid://d1xfpq6r220pc" path="res://scripts/towers/BasicTower.gd" id="1_orexi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6apey"]
+size = Vector2(96, 160)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g7nea"]
+radius = 288.444
+
+[node name="BaseTower" type="StaticBody2D"]
+collision_layer = 2
+input_pickable = true
+script = ExtResource("1_orexi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6apey")
+
+[node name="TowerRange" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 2
+
+[node name="TowerRange" type="CollisionShape2D" parent="TowerRange"]
+shape = SubResource("CircleShape2D_g7nea")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="GameOver" load_steps=2 format=3 uid="uid://bnblkdl3efj0a"]
+
+[ext_resource type="Script" uid="uid://c8h28x7kdoeu7" path="res://scripts/Resources/GameOver.gd" id="1_aafai"]
+
+[resource]
+script = ExtResource("1_aafai")
+previous_level_path = ""
+metadata/_custom_type_script = "uid://c8h28x7kdoeu7"
