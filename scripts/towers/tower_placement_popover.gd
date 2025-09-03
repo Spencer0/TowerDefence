@@ -4,7 +4,7 @@ class_name TowerPlacementTooltip
 
 signal place_tower_selected(choice, placement_spot)
 
-var placing_tower_spot: Node = null
+var placing_tower_spot = null
 var placement_tower_options: Array = []
 
 # UI References
@@ -21,7 +21,7 @@ func setup_scroll_container() -> void:
 	scroll_container.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	scroll_container.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 
-func setup_for_placement(placement_spot: Node, tower_options: Array) -> void:
+func setup_for_placement(placement_spot, tower_options: Array) -> void:
 	placing_tower_spot = placement_spot
 	placement_tower_options = tower_options.duplicate(true)
 	create_tower_buttons()

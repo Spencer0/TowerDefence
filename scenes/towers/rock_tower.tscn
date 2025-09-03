@@ -1,47 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://ecbuvwt2p3v8"]
+[gd_scene load_steps=7 format=3 uid="uid://1ijy8yidygj"]
 
-[ext_resource type="Script" uid="uid://d1xfpq6r220pc" path="res://scripts/towers/BasicTower.gd" id="1_6apey"]
-[ext_resource type="Texture2D" uid="uid://4gkb74ejw1ax" path="res://assets/sprites/IsometricTowerSprites/Towers (brown)/tower_03.png" id="2_0k3c6"]
-[ext_resource type="Texture2D" uid="uid://ctrfvtrkcbnu7" path="res://assets/sprites/IsometricTowerSprites/Towers (brown)/tower_02.png" id="3_3o4df"]
-[ext_resource type="Texture2D" uid="uid://k4kq8g5ti5y4" path="res://assets/sprites/IsometricTowerSprites/Towers (brown)/tower_01.png" id="4_hnk43"]
-[ext_resource type="Texture2D" uid="uid://blpsxxbml8hgj" path="res://assets/sprites/IsometricTowerSprites/Towers (brown)/tower_04.png" id="5_hu5y2"]
+[ext_resource type="PackedScene" uid="uid://boicog63mvln8" path="res://scenes/towers/BaseTower.tscn" id="1_aplwx"]
+[ext_resource type="Script" uid="uid://cl2hhkcd5mmq4" path="res://scripts/towers/rock_tower.gd" id="2_pthpi"]
+[ext_resource type="Texture2D" uid="uid://4gkb74ejw1ax" path="res://assets/sprites/IsometricTowerSprites/Towers (brown)/tower_03.png" id="3_dn6x5"]
+[ext_resource type="Texture2D" uid="uid://ctrfvtrkcbnu7" path="res://assets/sprites/IsometricTowerSprites/Towers (brown)/tower_02.png" id="4_k03lx"]
+[ext_resource type="Texture2D" uid="uid://k4kq8g5ti5y4" path="res://assets/sprites/IsometricTowerSprites/Towers (brown)/tower_01.png" id="5_c5k6y"]
+[ext_resource type="Texture2D" uid="uid://blpsxxbml8hgj" path="res://assets/sprites/IsometricTowerSprites/Towers (brown)/tower_04.png" id="6_hyks6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6apey"]
-size = Vector2(96, 160)
+[node name="RockTower" instance=ExtResource("1_aplwx")]
+script = ExtResource("2_pthpi")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g7nea"]
-radius = 288.444
-
-[node name="IsometricTower" type="StaticBody2D"]
-collision_layer = 2
-input_pickable = true
-script = ExtResource("1_6apey")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_6apey")
-
-[node name="Bottom" type="Sprite2D" parent="."]
+[node name="Bottom" type="Sprite2D" parent="." index="2"]
 position = Vector2(-1.5, 39.5)
-texture = ExtResource("2_0k3c6")
+texture = ExtResource("3_dn6x5")
 
-[node name="Middle2" type="Sprite2D" parent="."]
+[node name="Middle2" type="Sprite2D" parent="." index="3"]
 position = Vector2(-1.5, 23.5)
-texture = ExtResource("3_3o4df")
+texture = ExtResource("4_k03lx")
 
-[node name="Middle" type="Sprite2D" parent="."]
+[node name="Middle" type="Sprite2D" parent="." index="4"]
 position = Vector2(-1.5, -8.5)
-texture = ExtResource("4_hnk43")
+texture = ExtResource("5_c5k6y")
 
-[node name="Top" type="Sprite2D" parent="."]
+[node name="Top" type="Sprite2D" parent="." index="5"]
 position = Vector2(-1.5, -40.5)
-texture = ExtResource("5_hu5y2")
-
-[node name="TowerRange" type="Area2D" parent="."]
-visible = false
-collision_layer = 4
-collision_mask = 2
-
-[node name="TowerRange" type="CollisionShape2D" parent="TowerRange"]
-shape = SubResource("CircleShape2D_g7nea")
-
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+texture = ExtResource("6_hyks6")

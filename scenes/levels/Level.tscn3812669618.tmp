@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://coepreqnikvyq" path="res://assets/sprites/Character/FCP#FREE_2_Gold.png" id="10_qx4j1"]
 [ext_resource type="Script" uid="uid://ks5lv3xr8h8c" path="res://scripts/hover_diamond.gd" id="10_uhid2"]
 [ext_resource type="Texture2D" uid="uid://du0ehv4ljjbkg" path="res://assets/tileset_atlas.png" id="11_uhid2"]
-[ext_resource type="PackedScene" uid="uid://1ijy8yidygj" path="res://scenes/towers/rock_tower.tscn" id="11_x2778"]
+[ext_resource type="PackedScene" uid="uid://ecbuvwt2p3v8" path="res://scenes/towers/rock_tower.tscn" id="11_x2778"]
 [ext_resource type="Texture2D" uid="uid://cbamjlxvthkop" path="res://assets/sprites/TowerBody.png" id="11_xa47j"]
 [ext_resource type="Texture2D" uid="uid://crnrr1v6aixme" path="res://assets/details_atlas.png" id="12_jf8hv"]
 [ext_resource type="PackedScene" uid="uid://tu21sirfq047" path="res://scenes/ui/pause_screen.tscn" id="14_0pstx"]
@@ -170,7 +170,11 @@ ground_layer = NodePath("../../GroundLayer")
 placements = NodePath("../../Towers")
 hover_diamond = NodePath("../HoverDiamond")
 tooltip_scene = ExtResource("10_olq73")
+towerA_name = null
+towerA_cost = null
 towerA_scene = ExtResource("11_x2778")
+towerB_name = null
+towerB_cost = null
 towerB_scene = ExtResource("6_a3u51")
 
 [node name="HoverDiamond" type="Node2D" parent="GameManager"]
