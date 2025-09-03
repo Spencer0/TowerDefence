@@ -98,7 +98,7 @@ func _make_popovers():
 	var ui_root = get_tree().root.get_node("Main/UI/HUD") # adjust if needed
 	if ui_root == null:
 		# Fallback - try to find any Control in the tree or use root
-		ui_root = get_tree().root.get_node("Main/UI/HUD") 
+		ui_root = get_tree().root
 		if ui_root == null:
 			push_error("Could not find UI root for popovers")
 			return
@@ -203,12 +203,12 @@ func _on_place_tower_selected(choice: Dictionary, cell_or_spot) -> void:
 	var gm := get_tree().get_first_node_in_group("game_manager")
 	if gm == null or not gm.spend_money(choice.cost):
 		print("Not enough money. Need: %d" % choice.cost)
-		# TODO: Flash error if we have a spot object
+		# Flash error if we have a spot object
 		return
 
 	var tower: Node2D = choice.scene.instantiate()
 	var center_local := ground_layer.map_to_local(cell)
-	var bottom_tip_local := center_local + Vector2(0, _tile_size.y * 0.5 - 100)
+	var bottom_tip_local := center_local + Vector2(0, _tile_size.y * 0.5)
 	tower.global_position = ground_layer.to_global(bottom_tip_local)
 
 	placements.add_child(tower)
@@ -299,16 +299,24 @@ func _on_upgrade_range(tower_instance: Node) -> void:
 # ------------------ HELPERS ------------------
 
 func _get_hover_cell() -> Vector2i:
-	var mouse_global := get_viewport().get_mouse_position()
-	var local := ground_layer.to_local(mouse_global)
+	var camera := get_viewport().get_camera_2d()
+	var mouse_screen := get_viewport().get_mouse_position()
+	var mouse_world: Vector2
+	
+	if camera:
+		# Transform screen coordinates to world coordinates through camera
+		mouse_world = camera.get_global_mouse_position()
+	else:
+		# Fallback if no camera found
+		mouse_world = mouse_screen
+	
+	var local := ground_layer.to_local(mouse_world)
 	return ground_layer.local_to_map(local)
 
 func _can_place_at(cell: Vector2i) -> bool:
 	var td := ground_layer.get_cell_tile_data(cell)
 	if td == null:
 		return false
-	var cell5 =  td.has_custom_data("Buildable") and td.get_custom_data("Buildable")
-	print(td)
 	return td.has_custom_data("Buildable") and td.get_custom_data("Buildable")
 
 func _get_tower_options() -> Array:

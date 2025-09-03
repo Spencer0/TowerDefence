@@ -2,7 +2,7 @@ extends Node2D
 
 # --- Player state ---
 @export var player_health: int = 20
-@export var starting_money: int = 500
+@export var starting_money: int = 5000
 var player_money := 0
 var player_gems := 0
 @export var last_level_play: Resource

@@ -12,18 +12,21 @@ script = ExtResource("2_2e4qw")
 slow_duration = 3.0
 slow_amount = 0.5
 
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -80)
+
 [node name="Bottom2" type="Sprite2D" parent="." index="2"]
-position = Vector2(0, 46)
+position = Vector2(0.5, -37)
 texture = ExtResource("3_t5dbq")
 
 [node name="Middle1" type="Sprite2D" parent="." index="3"]
-position = Vector2(0, 19)
+position = Vector2(0.5, -64)
 texture = ExtResource("4_eymuq")
 
 [node name="Middle2" type="Sprite2D" parent="." index="4"]
-position = Vector2(0, -18)
+position = Vector2(0.5, -101)
 texture = ExtResource("5_m1gso")
 
 [node name="Bottom" type="Sprite2D" parent="." index="5"]
-position = Vector2(0, -53)
+position = Vector2(0.5, -136)
 texture = ExtResource("6_xmb6n")

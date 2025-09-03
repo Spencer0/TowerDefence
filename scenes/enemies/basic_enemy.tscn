@@ -186,5 +186,6 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_m37v0")
 
 [node name="RunWithSword" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -190)
 sprite_frames = SubResource("SpriteFrames_wjxvy")
 animation = &"up"
