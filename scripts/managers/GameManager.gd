@@ -17,8 +17,8 @@ var current_wave := 0
 @export var wave_label: Label
 
 # --- Popovers ---
-@onready var upgrade_popover_scene: PackedScene = preload("res://scenes/towers/tower_upgrade_popover.tscn")
-@onready var placement_popover_scene: PackedScene = preload("res://scenes/towers/tower_placement_popover.tscn")
+@onready var upgrade_popover_scene: PackedScene = preload("res://scenes/ui/tower_upgrade_popover.tscn")
+@onready var placement_popover_scene: PackedScene = preload("res://scenes/ui/tower_placement_popover.tscn")
 var upgrade_popover: Control = null
 var placement_popover: Control = null
 
@@ -101,7 +101,7 @@ func _on_placement_spot_clicked(spot):
 	var options := _get_tower_options()
 	placement_popover.setup_for_placement(spot, options)
 	placement_popover.position = get_viewport().get_mouse_position() + Vector2(14, 14)
-	placement_popover.show()
+	placement_popover.show_tooltip()
 
 func _get_tower_options() -> Array:
 	var arr: Array = []
@@ -149,7 +149,7 @@ func _on_tower_clicked(tower_instance):
 
 	upgrade_popover.setup_for_upgrade(tower_instance)
 	upgrade_popover.position = get_viewport().get_mouse_position() + Vector2(14, 14)
-	upgrade_popover.show()
+	upgrade_popover.show_tooltip()
 
 func _on_popover_dismissed():
 	selected_tower = null

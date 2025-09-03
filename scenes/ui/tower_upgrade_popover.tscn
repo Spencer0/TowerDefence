@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccohnoel7q3ub"]
+
+[ext_resource type="PackedScene" uid="uid://dfu8ur4q2pgw1" path="res://scenes/ui/BasePopover.tscn" id="1_1at7y"]
+[ext_resource type="Script" uid="uid://bepldh2vcw51o" path="res://scripts/towers/tower_upgrade_popover.gd" id="2_f04fb"]
+
+[node name="TowerUpgradePopover" instance=ExtResource("1_1at7y")]
+script = ExtResource("2_f04fb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ContentContainer" index="0"]
+layout_mode = 2
+
+[node name="StatsContainer" type="VBoxContainer" parent="PanelContainer/ContentContainer/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="NameLabel" type="Label" parent="PanelContainer/ContentContainer/VBoxContainer/StatsContainer" index="0"]
+layout_mode = 2
+text = "Rock Tower"
+horizontal_alignment = 1
+
+[node name="FirerateLabel" type="Label" parent="PanelContainer/ContentContainer/VBoxContainer/StatsContainer" index="1"]
+layout_mode = 2
+text = "150"
+horizontal_alignment = 1
+
+[node name="DamageLabel" type="Label" parent="PanelContainer/ContentContainer/VBoxContainer/StatsContainer" index="2"]
+layout_mode = 2
+text = "40"
+horizontal_alignment = 1
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="PanelContainer/ContentContainer/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="UpgradeDamageButton" type="Button" parent="PanelContainer/ContentContainer/VBoxContainer/ButtonsContainer" index="0"]
+custom_minimum_size = Vector2(100, 32)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_disabled_color = Color(0, 0.447059, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.490196, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.831373, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0.470588, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0.521569, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0.67451, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0.494118, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0.47451, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0.552941, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.490196, 0, 1)
+theme_override_colors/font_color = Color(0.72549, 0.729412, 0, 1)
+text = " Damage"
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="UpgradeFirerateButton" type="Button" parent="PanelContainer/ContentContainer/VBoxContainer/ButtonsContainer" index="1"]
+custom_minimum_size = Vector2(100, 32)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_disabled_color = Color(0, 0.513726, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.541176, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.85098, 0, 1)
+theme_override_colors/font_color = Color(1, 0.658824, 0, 1)
+text = "Upgrade Fire Rate"

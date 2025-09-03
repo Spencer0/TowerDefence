@@ -5,3 +5,12 @@
 
 [node name="TowerPlacementPopover" instance=ExtResource("1_488kq")]
 script = ExtResource("2_okidj")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/ContentContainer" index="0"]
+layout_mode = 2
+follow_focus = true
+draw_focus_border = true
+horizontal_scroll_mode = 0
+
+[node name="TowerButtonsContainer" type="VBoxContainer" parent="PanelContainer/ContentContainer/ScrollContainer" index="0"]
+layout_mode = 2
